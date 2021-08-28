@@ -44,6 +44,26 @@ app.action('button_click', async ({ body, ack, say }) => {
   await say(`<@${body.user.id}> clicked the button`);
 });
 
+app.command("/chatty", async ({ command, ack, say }) => {
+  try {
+    await ack();
+    say("Welcome. How are you doing?");
+  } catch (error) {
+      console.log("err")
+    console.error(error);
+  }
+});
+
+app.command("/", async ({ command, ack, say }) => {
+  try {
+    await ack();
+    say("Welcome. How are you doing?");
+  } catch (error) {
+      console.log("err")
+    console.error(error);
+  }
+});
+
 (async () => {
   // Start your app
   await app.start(process.env.PORT || 3000);
